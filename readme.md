@@ -261,7 +261,8 @@ dis
 配置我们的config文件
 
 	...
-	=-098761`	
+	{
+		=-098761`
   	test: /\.jsx?$/,
   	loader: 'babel',
   	include: APP_PATH,
@@ -273,6 +274,19 @@ dis
 
 现在我们可以改掉CommonJS风格的文件了。
 
+### 7、排错和定位
+
+
+
 ### * Build
 
 	npm start
+
+### *Git 配置
+
+		co = checkout
+		ci = commit
+		br = branch
+		st = status
+
+本项目中已经添加了git命令常用的配置，不需要自己再添加了哦~

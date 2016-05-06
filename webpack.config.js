@@ -5,6 +5,7 @@ var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ROOT_PATH = path.resolve(__dirname);
 var SRC_PATH = path.resolve(ROOT_PATH, 'src');
 var DIS_PATH = path.resolve(ROOT_PATH, 'dis');
+var TEM_PATH = path.resolve(ROOT_PATH, 'templates');
 
 module.exports = {
   // 项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
@@ -26,24 +27,42 @@ module.exports = {
     hot: true,
     inline: true,
     progress: true,
+    proxy: {
+      '/api/*': {
+          target: 'http://localhost:8080',
+          secure: false
+      }
+    }
   },
+  devtool: 'eval-source-map',
   module: {
     loaders: [
-        {
-          test: /\.scss$/,
-          loaders: ['style', 'css', 'sass'],
-          include: SRC_PATH
-        },{
-          test: /\.(png|jpg)$/,
-          loader: 'url?limit=40000'
-        },{
-          test: /\.jsx?$/,
-          loader: 'babel',
-          include: SRC_PATH,
-          query: {
-            presets: ['es2015']
-          }
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass'],
+        include: SRC_PATH
+      },{
+        test: /\.(png|jpg)$/,
+        loader: 'url?limit=40000'
+      },{
+        test: /\.jsx?$/,
+        loader: 'babel',
+        include: SRC_PATH,
+        query: {
+          presets: ['es2015']
         }
+      }
+    ],
+    perLoaders: [
+      {
+        test: /\.jsx?$/,
+        include: SRC_PATH,
+        loader: 'jshint-loader'
+      }
     ]
+  },
+  // 配置jshint的选项，支持es6的校验
+  jshint: {
+    esnext: true
   }
 };
