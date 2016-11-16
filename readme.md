@@ -66,6 +66,7 @@ Usage：
 
 
 ### 2、webpack 的作用
+ Webpack 是一个模块打包器。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。
 
 ![webpack](https://pic4.zhimg.com/524ee3f84a1742cbc4de3e2ff95ce983_r.png)
 
