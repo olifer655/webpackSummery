@@ -291,3 +291,5 @@ dis
 		st = status
 
 本项目中已经添加了git命令常用的配置，不需要自己再添加了哦~
+
+### makefill 相关内容见issues#2
