@@ -7,7 +7,7 @@
 安装成功后，在命令行输入 `webpack -h` 即可查看当前安装的版本信息
 
 不过通常情况，建议在当前目录下，拷贝一份
-
+	
 	npm install webpack --save-dev
 
 	# 简单的写法：-_-,缩写形式
@@ -19,54 +19,15 @@
 
 	npm i -g ied
 
-Usage：
-
-	ied is a package manager for Node.
-
-  	Usage:
-
-    	ied command [arguments]
-
-  	The commands are:
-
-    	install     fetch packages and dependencies
-    	run         run a package.json script
-    	test        run the test-suite of the current package
-    	shell       enter a sub-shell with augmented PATH
-    	ping        check if the registry is up
-    	ls          print the dependency graph
-    	expose      make a sub-dependency `require`able
-    	config      print the used config
-    	init        initialize a new package
-    	link        link the current package or into it
-    	unlink      unlink the current package or from it
-
-  	Flags:
-    	-h, --help      show usage information
-    	-v, --version   print the current version
-    	-S, --save      update package.json dependencies
-    	-D, --save-dev  update package.json devDependencies
-    	-o, --only      install a subset of the dependencies
-    	-r, --registry  use a custom registry (default: http://registry.npmjs.org/)
-
-  	Example:
-    	ied install
-    	ied install <pkg>
-    	ied install <pkg>@<version>
-    	ied install <pkg>@<version range>
-
-    	Can specify one or more: ied install semver@^5.0.1 tape
-    	If no argument is supplied, installs dependencies from package.json.
-    	Sub-commands can also be called via their shorthand aliases.
-
-  	README:  https://github.com/alexanderGugel/ied
-  	ISSUES:  https://github.com/alexanderGugel/ied/issues
-
-
-
-
 ### 2、webpack 的作用
+
  Webpack 是一个模块打包器。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。
+ 
+ 什么是模块？我们首先会想到 `JavaScript` 的 `ES2015` 模块、`AMD` 模块，又或 `CommonJS` 模块。
+
+只不过在 webpack 下，所有资源文件（assets）都可以是模块，包括 `JavaScript`、 `CSS`、图片、`JSON` 等等。
+
+我们当然清楚，在 JavaScript 里 import 图片会报错。但在 webpack 下，这没有问题。这要归功于加载器（loader）。通过加载器，webpack 将 JavaScript 的模块化普及至其它文件类型。
 
 ![webpack](https://pic4.zhimg.com/524ee3f84a1742cbc4de3e2ff95ce983_r.png)
 
